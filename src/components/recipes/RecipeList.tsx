@@ -1,9 +1,14 @@
-import React from "react";
 import RecipeItem from "./RecipeItem";
-import { Grid } from "@mui/material";
 
 interface Props {
-  itemList: object[];
+  itemList: Item[];
+}
+
+interface Item {
+  id: number;
+  title: string;
+  ingredients: string;
+  method: string;
 }
 
 function RecipeList(props: Props) {

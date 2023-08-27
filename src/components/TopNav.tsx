@@ -1,10 +1,11 @@
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+
+import { Link as RouterLink } from "react-router-dom";
 
 interface topNavProps {
   token: String | null;
@@ -29,16 +30,26 @@ export default function TopNav(props: topNavProps) {
 
         {props.token ? (
           <>
-            <Button color="inherit" href="/">
+            <Button component={RouterLink} color="inherit" href="#" to="/">
               Mes recettes
             </Button>
           </>
         ) : (
           <>
-            <Button color="inherit" href="/register">
+            <Button
+              component={RouterLink}
+              color="inherit"
+              href="#register"
+              to="/register"
+            >
               Inscription
             </Button>
-            <Button color="inherit" href="/login">
+            <Button
+              color="inherit"
+              component={RouterLink}
+              href="#login"
+              to="/login"
+            >
               Login
             </Button>
           </>

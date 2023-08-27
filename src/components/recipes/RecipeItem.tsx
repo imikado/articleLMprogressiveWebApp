@@ -1,19 +1,5 @@
-import {
-  Box,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Collapse,
-  Grid,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, Collapse, Typography } from "@mui/material";
 import React from "react";
-
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface ItemProps {
   item: Item;

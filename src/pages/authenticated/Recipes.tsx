@@ -1,8 +1,8 @@
-import React from "react";
 import RecipeList from "../../components/recipes/RecipeList";
-import { Container, Fab, Grid, Stack, Typography } from "@mui/material";
+import { Fab, Stack, Typography } from "@mui/material";
 import { gql, useQuery } from "@apollo/client";
 import AddIcon from "@mui/icons-material/Add";
+import { Link as RouterLink } from "react-router-dom";
 
 const fabStyle = {
   position: "absolute",
@@ -22,7 +22,7 @@ const RECIPES = gql`
 `;
 
 export default function Recipes() {
-  const { loading, error, data } = useQuery(RECIPES, {});
+  const { loading, error, data } = useQuery(RECIPES);
 
   if (loading)
     return (
@@ -42,7 +42,14 @@ export default function Recipes() {
       <Stack spacing={2}>
         <RecipeList itemList={data.recipes} />
       </Stack>
-      <Fab sx={fabStyle} href="/add" color="primary" aria-label="add">
+      <Fab
+        component={RouterLink}
+        sx={fabStyle}
+        href="#add"
+        to="/add"
+        color="primary"
+        aria-label="add"
+      >
         <AddIcon />
       </Fab>
     </>

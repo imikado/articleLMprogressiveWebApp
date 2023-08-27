@@ -31,6 +31,16 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 export const graphQLApi = new ApolloClient({
   link: concat(authMiddleware, httpLink),
   cache: new InMemoryCache(),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: "no-cache",
+      errorPolicy: "ignore",
+    },
+    query: {
+      fetchPolicy: "no-cache",
+      errorPolicy: "all",
+    },
+  },
 });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

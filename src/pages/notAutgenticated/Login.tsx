@@ -6,7 +6,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-//import { ADD_USER } from "../apis/UserApi";
 import { gql, useMutation } from "@apollo/client";
 import { useEffect } from "react";
 
@@ -23,7 +22,7 @@ interface loginProps {
 }
 
 export default function Login(props: loginProps) {
-  const [sendLogin, { data, loading, error }] = useMutation(LOGIN);
+  const [sendLogin, { data, error }] = useMutation(LOGIN);
 
   const processLogin = (e: React.SyntheticEvent) => {
     console.log("submit");
@@ -42,12 +41,7 @@ export default function Login(props: loginProps) {
   };
 
   useEffect(() => {
-    // Update the document title using the browser API
-    console.log("effect");
     if (data) {
-      console.log("iii");
-      console.log(data.login.token);
-
       props.setToken(data.login.token);
     }
   }, [data]);

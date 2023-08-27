@@ -24,7 +24,7 @@ const ADD_RECIPE = gql`
 `;
 
 export default function AddRecipe() {
-  const [addRecipe, { data, loading, error }] = useMutation(ADD_RECIPE);
+  const [addRecipe, { error }] = useMutation(ADD_RECIPE);
 
   const [redirect, setRedirect] = useState(false);
 

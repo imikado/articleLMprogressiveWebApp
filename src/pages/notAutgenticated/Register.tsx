@@ -1,14 +1,13 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import {
   Alert,
   Button,
-  Container,
   Grid,
   Snackbar,
   TextField,
   Typography,
 } from "@mui/material";
-import { ApolloError, gql, useMutation } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { Navigate } from "react-router-dom";
 
 const ADD_USER = gql`
@@ -21,7 +20,7 @@ const ADD_USER = gql`
 `;
 
 export default function Register() {
-  const [addUser, { data, loading, error }] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
   const [redirect, setRedirect] = useState(false);
 
   const processRegister = (e: React.SyntheticEvent) => {
@@ -43,10 +42,6 @@ export default function Register() {
     }).then(() => {
       setRedirect(true);
     });
-  };
-
-  const alertError = (error: ApolloError) => {
-    return error.message;
   };
 
   return (
